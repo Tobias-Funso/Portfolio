@@ -556,7 +556,8 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
   .nav-links{ display:none; }
   .nav-cta .btn{ display:none; }
   .burger{ display:flex; }
-  .mobile-menu, .menu-overlay{ display:block; }
+  .mobile-menu{ display:block; }
+  .menu-overlay{ display:none; }
 }
 @media (max-width: 1024px){
   .hero .container{ grid-template-columns:1fr; }
@@ -589,6 +590,13 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
   .hero-photo-wrap{ width:100%; max-width:300px; height:340px; }
   .footer-top, .footer-bottom{ flex-direction:column; text-align:center; }
   .footer-social{ justify-content:center; max-width:none; }
+}
+</style>
+<style id="mobile-touch-fix">
+@media (max-width: 1180px){
+  .menu-overlay:not(.open){ pointer-events:none !important; display:none !important; }
+  .mobile-menu:not(.open){ pointer-events:none; }
+  .mobile-menu.open{ pointer-events:auto; }
 }
 </style>
 </head>
@@ -1222,8 +1230,8 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
       <h2>Let's Connect</h2>
       <p>Have a role, a project, or just want to talk performance marketing? I'd love to hear from you.</p>
       <div class="contact-ctas">
-        <a href="#" class="https://www.linkedin.com/in/tobiasfunso/" target="_blank" rel="noopener noreferrer">LinkedIn <i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-        <a href="tobiasfunso@gmail.com" class="btn btn-outline">Email Me <i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/tobiasfunso/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">LinkedIn <i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="mailto:tobiasfunso@gmail.com" class="btn btn-outline">Email Me <i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
        
     </div>
   </div>
@@ -1238,11 +1246,11 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
     <div class="footer-top">
       <a href="#home" class="logo">Tobias<span>.</span></a>
       <div class="footer-social">
-        <a href="#" class="https://www.linkedin.com/in/tobiasfunso/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-        <a href="#" class="https://www.instagram.com/tobiasgrowth?" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-        <a href="#" class="https://www.tiktok.com/@tobiasgrowth" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
-        <a href="#" class="https://x.com/OluwatobiO12686" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
-        <a href="#" class="https://www.behance.net/oluwatoolaoluw" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/tobiasfunso/" class="btn btn-outline" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/tobiasgrowth/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.tiktok.com/@tobiasgrowth" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+        <a href="https://x.com/OluwatobiO12686" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.behance.net/oluwatoolaoluw" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
         <a href="tobiasfunso@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
       </div>
     </div>
