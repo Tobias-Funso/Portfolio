@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tobias — Performance Media Buyer &amp; E-commerce Store Designer</title>
+<meta name="description" content="Tobias — Performance Media Buyer &amp; E-commerce Store Designer. Meta &amp; TikTok Ads, Shopify store builds, and landing pages engineered to turn ad spend into paid receipts.">
+<meta name="theme-color" content="#121110">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tobias — Performance Media Buyer & E-commerce Store Designer">
+<meta property="og:description" content="Meta & TikTok Ads, Shopify store builds, and landing pages engineered to turn ad spend into paid receipts.">
+<meta property="og:image" content="https://github.com/Tobias-Funso/Portfolio/blob/main/Tobias.jpg?raw=true">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --ink:#121110; --ink-2:#1a1713; --ink-3:#232019;
+  --paper:#F2ECDA; --paper-2:#E7DFC5;
+  --gold:#E3B341; --gold-bright:#F4CD5E; --gold-deep:#A97C1F;
+  --text:#F6F2E8; --text-soft:#B7AD98; --text-dim:#847B69;
+  --profit:#6FCF97;
+  --line:rgba(246,242,232,0.10); --line-strong:rgba(246,242,232,0.20);
+  --font-display:'Space Grotesk',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --font-body:'Inter',sans-serif;
+  --maxw:1180px;
+  --radius:18px; --radius-sm:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body); color:var(--text); background:var(--ink);
+  overflow-x:hidden; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+::selection{background:var(--gold);color:var(--ink);}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--gold); outline-offset:3px; border-radius:4px;
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}
+}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--text);line-height:1.1;letter-spacing:-0.01em;font-weight:600;}
+.mono{font-family:var(--font-mono);}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);
+  font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold-bright); margin-bottom:18px;
+}
+.eyebrow::before{content:'';width:16px;height:1px;background:var(--gold);}
+.section-head{max-width:600px;margin:0 auto 52px;text-align:center;}
+.section-head h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:14px;}
+.section-head p{color:var(--text-soft);font-size:16.5px;}
+section{position:relative;padding:110px 0;}
+.section-alt{background:var(--ink-2);}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.08s;} .reveal-delay-2{transition-delay:.16s;} .reveal-delay-3{transition-delay:.24s;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:10px;font-weight:600;font-size:14.5px;font-family:var(--font-mono);letter-spacing:.02em;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,background .3s ease;white-space:nowrap;}
+.btn-gold{background:linear-gradient(135deg,var(--gold-bright),var(--gold-deep));color:var(--ink);box-shadow:0 4px 18px rgba(227,179,65,.28);}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(227,179,65,.4);}
+.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--line-strong);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-bright);transform:translateY(-3px);}
+.btn-sm{padding:11px 20px;font-size:13px;}
+.btn:active{transform:translateY(-1px);}
+
+/* Ticker */
+.ticker-wrap{background:var(--gold);color:var(--ink);overflow:hidden;position:relative;white-space:nowrap;padding:9px 0;}
+.ticker-track{display:inline-flex;animation:ticker 34s linear infinite;}
+.ticker-track span{font-family:var(--font-mono);font-size:12.5px;font-weight:700;letter-spacing:.05em;padding:0 22px;display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;}
+.ticker-track span::after{content:'●';font-size:6px;opacity:.5;margin-left:22px;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* Header */
+header{position:fixed;top:26px;left:0;right:0;z-index:1000;transition:all .35s ease;}
+header.scrolled{top:0;}
+.nav-shell{background:rgba(18,17,16,.75);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:border-radius .35s ease;}
+header.scrolled .nav-shell{border-radius:0;border-left:none;border-right:none;border-top:none;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+.logo{font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--text);display:flex;align-items:center;gap:2px;}
+.logo span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{padding:9px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--text-soft);transition:all .25s ease;font-family:var(--font-mono);}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.05);}
+.nav-links a.active{color:var(--gold-bright);}
+.nav-cta{display:flex;align-items:center;gap:12px;}
+.burger{display:none;width:42px;height:42px;border-radius:10px;align-items:center;justify-content:center;background:rgba(255,255,255,.06);}
+.burger span,.burger::before,.burger::after{content:'';display:block;width:16px;height:2px;background:var(--text);position:relative;transition:.3s;}
+.burger::before{position:absolute;transform:translateY(-5px);} .burger::after{position:absolute;transform:translateY(5px);}
+.mobile-menu{display:none;position:fixed;top:0;right:0;height:100vh;width:80%;max-width:320px;background:var(--ink-2);z-index:1100;box-shadow:-10px 0 40px rgba(0,0,0,.4);padding:100px 30px 30px;transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1);border-left:1px solid var(--line);}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu a{display:block;padding:14px 0;font-size:16px;font-weight:500;border-bottom:1px solid var(--line);font-family:var(--font-mono);}
+.menu-close{position:absolute;top:26px;right:26px;font-size:20px;padding:8px;color:var(--text);}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1050;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s ease,visibility .3s ease;}
+.menu-overlay.open{opacity:1;visibility:visible;pointer-events:auto;}
+
+/* Hero */
+.hero{padding:190px 0 100px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-200px;right:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(227,179,65,.16),transparent 70%);pointer-events:none;}
+.hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12.5px;font-weight:600;color:var(--gold-bright);background:rgba(227,179,65,.1);border:1px solid rgba(227,179,65,.25);padding:8px 16px;border-radius:999px;margin-bottom:24px;letter-spacing:.04em;}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--profit);animation:pulse 1.8s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(111,207,151,.5);}70%{box-shadow:0 0 0 8px rgba(111,207,151,0);}100%{box-shadow:0 0 0 0 rgba(111,207,151,0);}}
+.hero h1{font-size:clamp(34px,4.3vw,54px);font-weight:700;margin-bottom:24px;}
+.hero h1 .accent{color:var(--gold-bright);}
+.hero p.sub{font-size:18px;color:var(--text-soft);max-width:520px;margin-bottom:32px;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+.trust-badges{display:flex;flex-wrap:wrap;gap:9px;}
+.trust-badges span{font-family:var(--font-mono);font-size:12px;color:var(--text-soft);display:flex;align-items:center;gap:7px;font-weight:500;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:8px 13px;border-radius:999px;transition:all .25s ease;}
+.trust-badges span:hover{border-color:var(--gold);color:var(--text);}
+.trust-badges i{color:var(--gold);font-size:10px;}
+
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;}
+.hero-photo-wrap{position:relative;width:320px;height:390px;border-radius:14px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid var(--line-strong);}
+.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%) contrast(1.05);}
+.hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(18,17,16,.75));}
+.receipt-chip{position:absolute;background:var(--paper);color:var(--ink);border-radius:10px;padding:14px 16px;box-shadow:0 16px 40px rgba(0,0,0,.4);font-family:var(--font-mono);animation:floaty 7s ease-in-out infinite;}
+@keyframes floaty{0%,100%{transform:translate(0,0);}50%{transform:translate(0,-10px);}}
+.receipt-chip .num{font-weight:700;font-size:18px;}
+.receipt-chip .lbl{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;max-width:120px;line-height:1.3;}
+.rc-1{top:6px;right:-26px;animation-delay:.4s;}
+.rc-2{bottom:20px;left:-34px;animation-delay:1.1s;}
+
+/* Why hire */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.why-card{background:var(--ink);padding:38px 32px;position:relative;transition:background .3s ease;}
+.why-card:hover{background:var(--ink-3);}
+.why-card .why-index{font-family:var(--font-mono);font-size:12px;color:var(--gold);opacity:.7;letter-spacing:.05em;display:block;margin-bottom:18px;}
+.why-card .why-ic{width:44px;height:44px;border-radius:11px;background:rgba(227,179,65,.12);border:1px solid rgba(227,179,65,.25);color:var(--gold-bright);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:20px;}
+.why-card h3{font-size:18px;margin-bottom:10px;}
+.why-card p{font-size:14.5px;color:var(--text-soft);}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start;}
+.about-copy h3{font-size:12px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--gold-bright);margin:26px 0 10px;}
+.about-copy h3:first-child{margin-top:0;}
+.about-copy p{color:var(--text-soft);margin-bottom:6px;font-size:16px;}
+.pull-quote{font-family:var(--font-mono);font-size:15px;color:var(--text);border-left:2px solid var(--gold);padding-left:20px;margin-top:28px;line-height:1.8;}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.service-card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:22px;transition:transform .3s ease,border-color .3s ease;}
+.service-card:hover{transform:translateY(-5px);border-color:var(--gold);}
+.service-card .ic{width:38px;height:38px;border-radius:9px;background:rgba(227,179,65,.1);color:var(--gold-bright);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:14px;}
+.service-card h4{font-size:14.5px;margin-bottom:6px;font-family:var(--font-display);}
+.service-card p{font-size:12.5px;color:var(--text-dim);line-height:1.5;}
+
+/* Skills */
+.skills-group{margin-bottom:40px;}
+.skills-group:last-child{margin-bottom:0;}
+.skills-subhead{font-family:var(--font-mono);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-bright);margin-bottom:18px;padding-bottom:10px;border-bottom:1px dashed var(--line-strong);}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;}
+.chip{font-family:var(--font-mono);font-size:13px;color:var(--text-soft);background:var(--ink-2);border:1px solid var(--line);padding:9px 15px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;transition:all .25s ease;}
+.chip:hover{border-color:var(--gold);color:var(--text);transform:translateY(-2px);}
+.chip i{color:var(--gold);font-size:13px;}
+
+/* Receipt cards (case studies) */
+.receipt{background:var(--paper);color:var(--ink);border-radius:4px;position:relative;box-shadow:0 30px 70px rgba(0,0,0,.35);margin-bottom:48px;}
+.receipt::before,.receipt::after{content:'';display:block;height:14px;background-image:radial-gradient(circle at 9px 0,var(--ink) 9px,transparent 10px);background-size:18px 14px;background-repeat:repeat-x;}
+.receipt::before{background-position:-4px -7px;}
+.receipt::after{background-position:-4px 7px;}
+.receipt-body{padding:6px 48px 40px;}
+.receipt-header{text-align:center;border-bottom:1px dashed var(--text-dim);padding-bottom:20px;margin-bottom:24px;}
+.receipt-header .cs-tag{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);}
+.receipt-header h3{font-size:24px;color:var(--ink);margin:10px 0 0;}
+.receipt-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-bottom:22px;font-size:14px;}
+.receipt-grid .rg-item b{display:block;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold-deep);margin-bottom:4px;}
+.receipt-grid .rg-item span{color:#3a352c;}
+.rg-full{grid-column:1/-1;border-top:1px dashed var(--text-dim);padding-top:16px;}
+.receipt-totals{display:flex;flex-wrap:wrap;gap:0;border-top:1px dashed var(--text-dim);border-bottom:1px dashed var(--text-dim);padding:18px 0;margin-bottom:20px;}
+.rt-item{flex:1;min-width:100px;text-align:center;padding:6px 8px;border-right:1px dashed var(--text-dim);}
+.rt-item:last-child{border-right:none;}
+.rt-item .val{font-family:var(--font-mono);font-weight:700;font-size:19px;color:var(--ink);}
+.rt-item .lbl{font-size:10px;color:var(--gold-deep);text-transform:uppercase;letter-spacing:.05em;margin-top:3px;}
+.receipt-takeaway{font-size:13.5px;color:#3a352c;background:var(--paper-2);border-radius:8px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;}
+.receipt-takeaway i{color:var(--gold-deep);margin-top:2px;}
+.receipt-takeaway b{display:block;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;color:var(--ink);}
+.cs-media{border-radius:8px;overflow:hidden;margin-bottom:24px;aspect-ratio:16/9;background:#000;box-shadow:0 10px 30px rgba(0,0,0,.25);}
+.cs-media img{width:100%;height:100%;object-fit:cover;}
+
+/* Platform track record */
+.platform-track-head{text-align:center;margin:70px 0 40px;}
+.platform-track-head h3{font-size:24px;margin-bottom:8px;}
+.platform-track-head p{color:var(--text-soft);font-size:15px;}
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.platform-card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:28px;}
+.platform-card-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.platform-icon{width:44px;height:44px;border-radius:11px;background:rgba(227,179,65,.1);color:var(--gold-bright);display:flex;align-items:center;justify-content:center;font-size:19px;}
+.platform-card-head h4{font-size:16px;margin-bottom:2px;}
+.platform-card-head span{font-family:var(--font-mono);font-size:11.5px;color:var(--text-dim);}
+.platform-image{border-radius:10px;overflow:hidden;margin-bottom:18px;box-shadow:0 10px 26px rgba(0,0,0,.3);}
+.platform-badges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
+.result-badge{background:var(--ink);border:1px solid var(--line);border-radius:9px;padding:12px 8px;text-align:center;}
+.result-badge .val{font-family:var(--font-mono);font-weight:700;font-size:14.5px;color:var(--gold-bright);}
+.result-badge .lbl{font-size:9.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.04em;margin-top:3px;}
+.platform-row{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:9px 0;border-bottom:1px dashed var(--line);color:var(--text-soft);font-family:var(--font-mono);flex-wrap:wrap;}
+.num-chip{color:var(--text);}
+.proof-video-wrap{margin-top:20px;}
+.proof-video-frame{aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000;}
+.proof-video-frame video{width:100%;height:100%;object-fit:cover;display:block;}
+.proof-video-label{font-family:var(--font-mono);font-size:10px;color:var(--gold-bright);text-transform:uppercase;letter-spacing:.08em;margin:12px 0 4px;}
+
+/* Store video gallery */
+.store-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+.store-video-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--ink-2);overflow:hidden;transition:transform .3s ease;}
+.store-video-card:hover{transform:translateY(-5px);}
+.store-video-frame{aspect-ratio:16/10;background:#000;}
+.store-video-frame video{width:100%;height:100%;object-fit:cover;display:block;}
+.store-video-info{padding:18px 20px 20px;}
+.store-video-label{display:inline-flex;align-items:center;gap:7px;color:var(--gold-bright);font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+.store-video-info h3{font-size:16.5px;}
+
+/* Landing page showcase */
+.lp-showcase{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:start;}
+.lp-image{border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);border:1px solid var(--line);}
+.lp-details{display:grid;grid-template-columns:1fr 1fr;gap:22px 26px;}
+.lp-detail h3{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold-bright);margin-bottom:7px;}
+.lp-detail p{font-size:14px;color:var(--text-soft);}
+
+/* Metrics */
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.metric-card{background:var(--ink-2);padding:32px 24px;}
+.m-icon{color:var(--gold);font-size:17px;margin-bottom:14px;}
+.m-val{font-family:var(--font-mono);font-weight:700;font-size:27px;color:var(--text);}
+.m-lbl{font-size:12.5px;color:var(--gold-bright);margin:6px 0 8px;font-weight:600;}
+.m-desc{font-size:12px;color:var(--text-dim);line-height:1.5;}
+
+/* Experience timeline */
+.timeline{border-left:1px dashed var(--line-strong);padding-left:34px;position:relative;}
+.timeline-item{position:relative;padding-bottom:38px;}
+.timeline-item:last-child{padding-bottom:0;}
+.timeline-dot{position:absolute;left:-40px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--ink);}
+.timeline-item h3{font-size:17px;margin-bottom:4px;}
+.t-meta{font-family:var(--font-mono);font-size:11px;color:var(--gold-bright);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.timeline-item p{color:var(--text-soft);font-size:14.5px;max-width:560px;}
+
+/* Achievements */
+.achievements-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.ach-card{background:var(--ink);padding:34px 20px;text-align:center;}
+.ach-card .val{font-family:var(--font-mono);font-weight:700;font-size:30px;color:var(--gold-bright);}
+.ach-card .lbl{font-size:12.5px;color:var(--text-soft);margin-top:8px;}
+
+/* Joy */
+.joy-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;}
+.joy-image{border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);border:1px solid var(--line);}
+.joy-copy p{color:var(--text-soft);margin-bottom:16px;font-size:15.5px;}
+.joy-icons{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+.joy-icons div{display:flex;align-items:center;gap:8px;background:var(--ink-2);border:1px solid var(--line);padding:9px 15px;border-radius:999px;font-family:var(--font-mono);font-size:12.5px;color:var(--text-soft);}
+.joy-icons i{color:var(--gold);}
+
+/* Testimonials */
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.testimonial-card{background:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:30px;position:relative;}
+.testimonial-card .quote{color:var(--gold);opacity:.35;font-size:22px;margin-bottom:14px;}
+.testimonial-card p{font-size:14.5px;color:var(--text-soft);margin-bottom:22px;}
+.t-author{display:flex;align-items:center;gap:12px;}
+.t-avatar{width:38px;height:38px;border-radius:50%;background:rgba(227,179,65,.14);color:var(--gold-bright);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--font-mono);flex-shrink:0;}
+.t-name{font-weight:600;font-size:14px;}
+.t-author span{font-size:12px;color:var(--text-dim);}
+
+/* FAQ */
+.faq-list{max-width:760px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%;text-align:left;padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:500;font-family:var(--font-display);}
+.faq-q i{color:var(--gold);font-size:13px;transition:transform .3s ease;}
+.faq-item.open .faq-q i{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-item.open .faq-a{max-height:200px;}
+.faq-a p{padding-bottom:22px;color:var(--text-soft);font-size:14.5px;max-width:620px;}
+
+/* Contact */
+.contact-receipt{background:var(--paper);color:var(--ink);border-radius:4px;max-width:640px;margin:0 auto;box-shadow:0 30px 80px rgba(0,0,0,.4);}
+.contact-receipt::before,.contact-receipt::after{content:'';display:block;height:14px;background-image:radial-gradient(circle at 9px 0,var(--ink) 9px,transparent 10px);background-size:18px 14px;background-repeat:repeat-x;}
+.contact-receipt::before{background-position:-4px -7px;}
+.contact-receipt::after{background-position:-4px 7px;}
+.contact-inner{padding:8px 44px 44px;text-align:center;}
+.contact-inner .mono-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);border-bottom:1px dashed var(--text-dim);padding-bottom:18px;margin-bottom:22px;}
+.contact-inner h2{color:var(--ink);font-size:30px;margin-bottom:12px;}
+.contact-inner p{color:#3a352c;margin-bottom:28px;}
+.contact-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.contact-inner .btn-outline{border-color:#c9c0a6;color:var(--ink);}
+.contact-inner .btn-outline:hover{border-color:var(--gold-deep);color:var(--gold-deep);}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:44px 0;}
+.footer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:20px;}
+.footer-social{display:flex;gap:10px;}
+.footer-social a{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--ink-2);border:1px solid var(--line);color:var(--text-soft);transition:all .25s ease;}
+.footer-social a:hover{color:var(--gold-bright);border-color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-dim);font-family:var(--font-mono);flex-wrap:wrap;gap:10px;}
+
+.back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(10px);transition:all .3s ease;z-index:900;font-size:15px;}
+.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+.back-to-top:hover{background:var(--gold-bright);transform:translateY(-4px);}
+.skip-link{position:fixed;top:-60px;left:16px;z-index:2000;background:var(--gold);color:var(--ink);padding:12px 20px;border-radius:10px;font-weight:600;font-size:14px;transition:top .2s ease;}
+.skip-link:focus{top:16px;}
+
+@media (max-width:1180px){
+  .nav-links{display:none;} .nav-cta .btn{display:none;} .burger{display:flex;} .mobile-menu{display:block;}
+}
+@media (max-width:1024px){
+  .hero .container{grid-template-columns:1fr;} .hero-visual{order:-1;margin-bottom:10px;justify-content:center;}
+  .about-grid,.joy-grid,.lp-showcase{grid-template-columns:1fr;} .why-grid{grid-template-columns:1fr;}
+  .metrics-grid,.achievements-grid{grid-template-columns:1fr 1fr;} .platform-grid{grid-template-columns:1fr;}
+  .testimonial-grid{grid-template-columns:1fr;} .receipt-grid{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  .container{padding:0 20px;} section{padding:80px 0;}
+  .metrics-grid,.achievements-grid{grid-template-columns:1fr 1fr;} .store-video-grid{grid-template-columns:1fr;}
+  .service-grid{grid-template-columns:1fr;} .lp-details{grid-template-columns:1fr 1fr;}
+  .receipt-body,.contact-inner{padding-left:22px;padding-right:22px;}
+  .footer-top,.footer-bottom{flex-direction:column;text-align:center;}
+  .hero{padding-top:160px;}
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header id="siteHeader">
+  <div class="container">
+    <div class="nav-shell">
+      <nav>
+        <a href="#home" class="logo">Tobias<span>.</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+          <li><a href="#store-videos" class="nav-link">Store Design</a></li>
+          <li><a href="#metrics" class="nav-link">Metrics</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-gold btn-sm">Hire Me</a>
+          <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button class="menu-close" id="menuClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#home">Home</a><a href="#about">About</a><a href="#case-studies">Case Studies</a>
+  <a href="#store-videos">Store Design</a><a href="#metrics">Metrics</a><a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span>₦4,235,104.80 TOTAL AD SPEND</span><span>437 PURCHASES DRIVEN</span><span>2.48% CTR</span><span>98% CLIENT SATISFACTION</span><span>50+ CAMPAIGNS MANAGED</span><span>60+ LANDING PAGES BUILT</span>
+    <span>₦4,235,104.80 TOTAL AD SPEND</span><span>437 PURCHASES DRIVEN</span><span>2.48% CTR</span><span>98% CLIENT SATISFACTION</span><span>50+ CAMPAIGNS MANAGED</span><span>60+ LANDING PAGES BUILT</span>
+  </div>
+</div>
+
+<main id="main-content">
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-copy reveal in-view">
+      <div class="hero-eyebrow"><span class="dot"></span> Available for new opportunities</div>
+      <h1>I Turn Ad Spend Into <span class="accent">Paid Receipts</span>.</h1>
+      <p class="sub">I'm Tobias — a performance media buyer and e-commerce store designer. I build Meta &amp; TikTok Ads campaigns, Shopify stores, and landing pages that turn cold traffic into customers who actually check out.</p>
+      <div class="hero-ctas">
+        <a href="#case-studies" class="btn btn-gold">View The Receipts <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-outline">Let's Talk</a>
+      </div>
+      <div class="trust-badges">
+        <span><i class="fa-solid fa-check"></i> Meta Ads</span>
+        <span><i class="fa-solid fa-check"></i> TikTok Ads</span>
+        <span><i class="fa-solid fa-check"></i> Shopify Store Design</span>
+        <span><i class="fa-solid fa-check"></i> Landing Pages</span>
+        <span><i class="fa-solid fa-check"></i> Sales Funnels</span>
+        <span><i class="fa-solid fa-check"></i> Email Marketing</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2 in-view">
+      <div class="hero-photo-wrap">
+        <img src="https://github.com/Tobias-Funso/Portfolio/blob/main/Tobias.jpg?raw=true" alt="Portrait of Tobias">
+      </div>
+      <div class="receipt-chip rc-1"><div class="num">437</div><div class="lbl">Purchases Driven</div></div>
+      <div class="receipt-chip rc-2"><div class="num">2.48%</div><div class="lbl">Avg. CTR</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE -->
+<section class="why-hire" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why Businesses Hire Me</div>
+      <h2>Three reasons clients keep coming back</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><span class="why-index">FIG. 01</span><div class="why-ic"><i class="fa-solid fa-chart-line"></i></div><h3>Data-Driven Decisions</h3><p>Every campaign is guided by performance data, testing, and continuous optimization — never guesswork.</p></div>
+      <div class="why-card reveal reveal-delay-1"><span class="why-index">FIG. 02</span><div class="why-ic"><i class="fa-solid fa-bullseye"></i></div><h3>Conversion-Focused</h3><p>I don't just launch ads. I optimize the entire journey from click to checkout.</p></div>
+      <div class="why-card reveal reveal-delay-2"><span class="why-index">FIG. 03</span><div class="why-ic"><i class="fa-solid fa-comments"></i></div><h3>Clear Communication</h3><p>Transparent reporting, actionable insights, and honest answers about what's working.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + SERVICES -->
+<section id="about" class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">About Me</div>
+      <h2>The person behind the numbers</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal reveal-delay-1">
+        <h3>Introduction</h3>
+        <p>I'm Tobias, a performance-driven marketer who lives at the intersection of paid media, store design, and conversion psychology. I build campaigns and stores that don't just get seen — they get bought from.</p>
+        <h3>Experience</h3>
+        <p>I've planned, launched, and optimized Meta &amp; TikTok Ads campaigns, built and designed Shopify stores end-to-end, and written copy that turns cold traffic into paying customers — for brands targeting English-speaking markets across the globe.</p>
+        <h3>Philosophy</h3>
+        <p>Every click has a cost, and every visitor deserves a reason to act. I treat every campaign as a system: hook, message, offer, and page, all working toward one measurable outcome.</p>
+        <div class="pull-quote">"The numbers never lie — and there's always a smarter test to run."</div>
+      </div>
+      <div class="service-grid reveal reveal-delay-2">
+        <div class="service-card"><div class="ic"><i class="fa-brands fa-meta"></i></div><h4>Meta Ads</h4><p>Full-funnel campaigns built on data, not guesswork.</p></div>
+        <div class="service-card"><div class="ic"><i class="fa-brands fa-tiktok"></i></div><h4>TikTok Ads</h4><p>Native-feeling creative for a platform that punishes anything that looks like an ad.</p></div>
+        <div class="service-card"><div class="ic"><i class="fa-brands fa-shopify"></i></div><h4>Shopify Store Design</h4><p>Storefronts built to load fast, look premium, and sell around the clock.</p></div>
+        <div class="service-card"><div class="ic"><i class="fa-solid fa-file-lines"></i></div><h4>Landing Pages</h4><p>Pages engineered to convert, not just to look nice.</p></div>
+        <div class="service-card"><div class="ic"><i class="fa-solid fa-flask"></i></div><h4>CRO Testing</h4><p>Structured A/B testing to squeeze out every extra point.</p></div>
+        <div class="service-card"><div class="ic"><i class="fa-solid fa-pen-nib"></i></div><h4>Copywriting</h4><p>Words that move people from curious to convinced.</p></div>
+        <div class="service-card"><div class="ic"><i class="fa-solid fa-envelope-open-text"></i></div><h4>Email Marketing</h4><p>Sequences that nurture, retain, and re-activate customers.</p></div>
+        <div class="service-card"><div class="ic"><i class="fa-brands fa-wordpress"></i></div><h4>WordPress Sites</h4><p>Business sites built on WordPress when that's the better fit.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Skills</div>
+      <h2>Tools of the trade</h2>
+    </div>
+    <div class="skills-group reveal">
+      <div class="skills-subhead">Advertising &amp; Growth</div>
+      <div class="chip-row">
+        <span class="chip"><i class="fa-brands fa-meta"></i>Meta Ads</span><span class="chip"><i class="fa-brands fa-tiktok"></i>TikTok Ads</span>
+        <span class="chip"><i class="fa-brands fa-google"></i>Google Ads</span><span class="chip"><i class="fa-solid fa-file-lines"></i>Landing Pages</span>
+        <span class="chip"><i class="fa-solid fa-diagram-project"></i>Sales Funnels</span><span class="chip"><i class="fa-solid fa-envelope-open-text"></i>Email Marketing</span>
+        <span class="chip"><i class="fa-solid fa-flask"></i>Conversion Optimization</span><span class="chip"><i class="fa-solid fa-lightbulb"></i>Creative Strategy</span>
+        <span class="chip"><i class="fa-solid fa-magnifying-glass-chart"></i>Audience Research</span><span class="chip"><i class="fa-solid fa-pen-nib"></i>Copywriting</span>
+        <span class="chip"><i class="fa-solid fa-chart-pie"></i>Analytics</span><span class="chip"><i class="fa-solid fa-vial-circle-check"></i>A/B Testing</span>
+      </div>
+    </div>
+    <div class="skills-group reveal">
+      <div class="skills-subhead">E-commerce &amp; Web</div>
+      <div class="chip-row">
+        <span class="chip"><i class="fa-brands fa-shopify"></i>Shopify</span><span class="chip"><i class="fa-brands fa-wordpress"></i>WordPress</span>
+        <span class="chip"><i class="fa-solid fa-cart-shopping"></i>E-commerce</span><span class="chip"><i class="fa-solid fa-boxes-packing"></i>Dropshipping</span>
+        <span class="chip"><i class="fa-solid fa-shirt"></i>Print on Demand</span><span class="chip"><i class="fa-solid fa-globe"></i>Website Builds</span>
+      </div>
+    </div>
+    <div class="skills-group reveal">
+      <div class="skills-subhead">Design &amp; AI Tools</div>
+      <div class="chip-row">
+        <span class="chip"><i class="fa-solid fa-palette"></i>Canva</span><span class="chip"><i class="fa-brands fa-adobe"></i>Photoshop</span>
+        <span class="chip"><i class="fa-solid fa-clapperboard"></i>CapCut</span><span class="chip"><i class="fa-solid fa-wand-magic-sparkles"></i>Claude</span>
+        <span class="chip"><i class="fa-solid fa-comments"></i>ChatGPT</span><span class="chip"><i class="fa-solid fa-bolt"></i>Grok</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES (RECEIPTS) -->
+<section id="case-studies" class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Case Studies</div>
+      <h2>Campaigns that moved the numbers</h2>
+      <p>A look inside two real ads from a live 21-ad Meta Ads account — the strategy behind them and the receipts they produced.</p>
+    </div>
+
+    <div class="receipt reveal">
+      <div class="receipt-body">
+        <div class="cs-media"><img src="https://github.com/Tobias-Funso/Portfolio/blob/main/case-study1.jpg?raw=true" alt="Meta Ads Manager dashboard showing results, reach, frequency and cost per purchase"></div>
+        <div class="receipt-header"><span class="cs-tag">Meta Ads · E-commerce</span><h3>The Lowest-Cost-Per-Purchase Ad In The Account</h3></div>
+        <div class="receipt-grid">
+          <div class="rg-item"><b>Objective</b><span>Drive purchases at the lowest possible cost across a live e-commerce account.</span></div>
+          <div class="rg-item"><b>Challenge</b><span>21 ad variations running at once, most absorbing budget with zero purchases.</span></div>
+          <div class="rg-item"><b>Strategy</b><span>Isolated which ad was actually converting, then prioritized its budget.</span></div>
+          <div class="rg-item"><b>Audience</b><span>Meta's automatic placements across Facebook &amp; Instagram, optimized for on-site purchases.</span></div>
+          <div class="rg-item rg-full"><b>Results</b><span>₦428,960.22 in spend produced 46 purchases at ₦9,325.22 each — the most efficient cost-per-purchase of any ad in the account.</span></div>
+        </div>
+        <div class="receipt-totals">
+          <div class="rt-item"><div class="val">46</div><div class="lbl">Purchases</div></div>
+          <div class="rt-item"><div class="val">₦9,325</div><div class="lbl">Cost/Purchase</div></div>
+          <div class="rt-item"><div class="val">1.66%</div><div class="lbl">CTR</div></div>
+          <div class="rt-item"><div class="val">48.6K</div><div class="lbl">Reach</div></div>
+        </div>
+        <div class="receipt-takeaway"><i class="fa-solid fa-lightbulb"></i><div><b>Key Takeaway</b><span>Efficiency and volume aren't the same thing — knowing which number matters for the goal at hand is the actual skill.</span></div></div>
+      </div>
+    </div>
+
+    <div class="receipt reveal">
+      <div class="receipt-body">
+        <div class="cs-media"><img src="https://github.com/Tobias-Funso/Portfolio/blob/main/case-study2.jpg?raw=true" alt="Meta Ads Manager dashboard showing CPM, link clicks, CTR and landing page views"></div>
+        <div class="receipt-header"><span class="cs-tag">Meta Ads · E-commerce</span><h3>The Single Ad That Carried The Account</h3></div>
+        <div class="receipt-grid">
+          <div class="rg-item"><b>Objective</b><span>Identify which of 21 live ads was actually worth scaling further.</span></div>
+          <div class="rg-item"><b>Challenge</b><span>Account-wide spend climbing, but purchases concentrated in a small number of ads.</span></div>
+          <div class="rg-item"><b>Strategy</b><span>Tracked landing page views alongside purchases to confirm real conversion, not just clicks.</span></div>
+          <div class="rg-item"><b>Audience</b><span>Same Meta automatic placement setup, run concurrently for a fair comparison.</span></div>
+          <div class="rg-item rg-full"><b>Results</b><span>₦618,495.87 in spend produced 59 purchases — over a third of the entire account's total purchases from one ad.</span></div>
+        </div>
+        <div class="receipt-totals">
+          <div class="rt-item"><div class="val">59</div><div class="lbl">Purchases</div></div>
+          <div class="rt-item"><div class="val">₦10,483</div><div class="lbl">Cost/Purchase</div></div>
+          <div class="rt-item"><div class="val">2.33%</div><div class="lbl">CTR</div></div>
+          <div class="rt-item"><div class="val">68.6K</div><div class="lbl">Reach</div></div>
+        </div>
+        <div class="receipt-takeaway"><i class="fa-solid fa-lightbulb"></i><div><b>Key Takeaway</b><span>One ad drove over a third of all purchases across a 21-ad account. Testing at scale only pays off if you shift budget to the outlier fast.</span></div></div>
+      </div>
+    </div>
+
+    <div class="platform-track-head reveal">
+      <h3>Platform Track Record</h3>
+      <p>Current, active campaign numbers across every platform I run paid media on.</p>
+    </div>
+    <div class="platform-grid reveal">
+      <div class="platform-card">
+        <div class="platform-card-head"><div class="platform-icon"><i class="fa-brands fa-meta"></i></div><div><h4>Meta Ads Portfolio</h4><span>2 active campaigns</span></div></div>
+        <div class="platform-image"><img src="https://github.com/Tobias-Funso/Portfolio/blob/main/Meta%20Ads%20Conversion.png?raw=true" alt="Meta Ads Portfolio campaign screenshot"></div>
+        <div class="platform-badges">
+          <div class="result-badge"><div class="val">₦2.05M</div><div class="lbl">Total Spend</div></div>
+          <div class="result-badge"><div class="val">199</div><div class="lbl">Purchases</div></div>
+          <div class="result-badge"><div class="val">₦10,325</div><div class="lbl">Avg CPA</div></div>
+        </div>
+        <div class="platform-row"><span>Campaign 1</span><span><span class="num-chip">₦1,064,637</span> → <span class="num-chip">99 purchases</span> → <span class="num-chip">₦10,754 CPA</span></span></div>
+        <div class="platform-row"><span>Campaign 2</span><span><span class="num-chip">₦990,051</span> → <span class="num-chip">100 purchases</span> → <span class="num-chip">₦9,901 CPA</span></span></div>
+        <div class="proof-video-wrap">
+          <div class="proof-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Meta%20Ads%20manager..mp4" type="video/mp4"></video></div>
+          <div class="proof-video-label">Meta Ads Proof</div>
+        </div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-card-head"><div class="platform-icon"><i class="fa-brands fa-tiktok"></i></div><div><h4>TikTok Ads Portfolio</h4><span>Active campaign</span></div></div>
+        <div class="platform-image"><img src="https://github.com/Tobias-Funso/Portfolio/blob/main/Tiktok%20ads%20conversion.png?raw=true" alt="TikTok Ads Portfolio campaign screenshot"></div>
+        <div class="platform-badges">
+          <div class="result-badge"><div class="val">₦607.7K</div><div class="lbl">Spend</div></div>
+          <div class="result-badge"><div class="val">67</div><div class="lbl">Purchases</div></div>
+          <div class="result-badge"><div class="val">₦9,070</div><div class="lbl">CPA</div></div>
+        </div>
+        <div class="platform-row"><span>Impressions</span><span class="num-chip">334,260</span></div>
+        <div class="platform-row"><span>Clicks</span><span><span class="num-chip">3,038</span> · <span class="num-chip">0.91% CTR</span></span></div>
+        <div class="proof-video-wrap">
+          <div class="proof-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Tiktok%20Ads%20Manager.mp4" type="video/mp4"></video></div>
+          <div class="proof-video-label">TikTok Ads Proof</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- E-COMMERCE STORE DESIGN -->
+<section id="store-videos">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">E-commerce Store Design</div>
+      <h2>Store builds, from idea to launch</h2>
+      <p>Shopify and e-commerce stores designed, structured, and optimized for a better shopping experience.</p>
+    </div>
+    <div class="store-video-grid">
+      <article class="store-video-card reveal"><div class="store-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Store-Design-a.mp4" type="video/mp4"></video></div><div class="store-video-info"><div class="store-video-label"><i class="fa-solid fa-store"></i> Store 01</div><h3>Shopify Store Walkthrough</h3></div></article>
+      <article class="store-video-card reveal reveal-delay-1"><div class="store-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Store-Design-b.mp4" type="video/mp4"></video></div><div class="store-video-info"><div class="store-video-label"><i class="fa-solid fa-store"></i> Store 02</div><h3>Product Page &amp; Conversion Design</h3></div></article>
+      <article class="store-video-card reveal"><div class="store-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Store-Design-g.mp4" type="video/mp4"></video></div><div class="store-video-info"><div class="store-video-label"><i class="fa-solid fa-store"></i> Store 03</div><h3>Beauty &amp; Skincare Store</h3></div></article>
+      <article class="store-video-card reveal reveal-delay-1"><div class="store-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Store-Design-c.mp4" type="video/mp4"></video></div><div class="store-video-info"><div class="store-video-label"><i class="fa-solid fa-store"></i> Store 04</div><h3>Jewelry &amp; Lifestyle Store</h3></div></article>
+      <article class="store-video-card reveal"><div class="store-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Store-Design-d.mp4" type="video/mp4"></video></div><div class="store-video-info"><div class="store-video-label"><i class="fa-solid fa-store"></i> Store 05</div><h3>Homepage &amp; Collection Design</h3></div></article>
+      <article class="store-video-card reveal reveal-delay-1"><div class="store-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Store-Design-f.mp4" type="video/mp4"></video></div><div class="store-video-info"><div class="store-video-label"><i class="fa-solid fa-store"></i> Store 06</div><h3>Mobile Store Experience</h3></div></article>
+      <article class="store-video-card reveal"><div class="store-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Store-Design-h.mp4" type="video/mp4"></video></div><div class="store-video-info"><div class="store-video-label"><i class="fa-solid fa-store"></i> Store 07</div><h3>Full Store Build</h3></div></article>
+      <article class="store-video-card reveal reveal-delay-1"><div class="store-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/Store-Design-e.mp4" type="video/mp4"></video></div><div class="store-video-info"><div class="store-video-label"><i class="fa-solid fa-store"></i> Store 08</div><h3>Another E-commerce Project</h3></div></article>
+    </div>
+
+    <div class="proof-video-wrap reveal" style="margin-top:40px;">
+      <div class="section-head" style="text-align:left;max-width:100%;margin-bottom:20px;">
+        <div class="eyebrow">First E-commerce Project</div>
+        <h3 style="font-size:20px;">First Store Walkthrough</h3>
+      </div>
+      <div class="proof-video-frame"><video controls playsinline preload="metadata"><source src="https://github.com/Tobias-Funso/Portfolio/raw/refs/heads/main/First%20Project%20Then%201.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- LANDING PAGE -->
+<section id="landing-page" class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Featured Work</div>
+      <h2>A landing page built to convert</h2>
+      <p>Every element on this page has a job. Here's the thinking behind one of my favorite builds.</p>
+    </div>
+    <div class="lp-showcase reveal">
+      <div class="lp-image"><img src="https://github.com/Tobias-Funso/Portfolio/blob/main/y.png?raw=true" alt="High-converting landing page example"></div>
+      <div class="lp-details">
+        <div class="lp-detail"><h3>Goal</h3><p>Convert cold ad traffic into booked strategy calls.</p></div>
+        <div class="lp-detail"><h3>Problem</h3><p>The original page had too many distractions and no clear next step.</p></div>
+        <div class="lp-detail"><h3>Strategy</h3><p>One offer, one CTA, a clear proof stack above the fold.</p></div>
+        <div class="lp-detail"><h3>Headline</h3><p>"Book Your Free Growth Audit — See Exactly Where You're Leaving Money On The Table."</p></div>
+        <div class="lp-detail"><h3>CTA</h3><p>"Get My Free Audit" — repeated at every natural scroll break.</p></div>
+        <div class="lp-detail"><h3>Result</h3><p>Booking rate improved significantly after the rebuild.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Performance Metrics</div>
+      <h2>The numbers that guide every decision</h2>
+      <p>What gets measured gets improved.</p>
+    </div>
+    <div class="metrics-grid reveal">
+      <div class="metric-card"><div class="m-icon"><i class="fa-solid fa-bag-shopping"></i></div><div class="m-val">437</div><div class="m-lbl">Purchases &amp; Conversions</div><div class="m-desc">Combined total across the Meta 21-ad account, Meta portfolio, and TikTok Ads.</div></div>
+      <div class="metric-card"><div class="m-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div><div class="m-val">₦9,691</div><div class="m-lbl">Blended Cost/Purchase</div><div class="m-desc">Total spend divided by total purchases, across every platform.</div></div>
+      <div class="metric-card"><div class="m-icon"><i class="fa-solid fa-arrow-pointer"></i></div><div class="m-val">2.48%</div><div class="m-lbl">CTR</div><div class="m-desc">Click-through rate on the Meta 21-ad account.</div></div>
+      <div class="metric-card"><div class="m-icon"><i class="fa-solid fa-chart-pie"></i></div><div class="m-val">4.53%</div><div class="m-lbl">Conversion Rate</div><div class="m-desc">Purchases as a share of landing page views — the bottom-of-funnel number.</div></div>
+      <div class="metric-card"><div class="m-icon"><i class="fa-solid fa-eye"></i></div><div class="m-val">₦3,304</div><div class="m-lbl">CPM</div><div class="m-desc">Cost per 1,000 impressions on the Meta 21-ad account.</div></div>
+      <div class="metric-card"><div class="m-icon"><i class="fa-solid fa-computer-mouse"></i></div><div class="m-val">₦133</div><div class="m-lbl">CPC</div><div class="m-desc">Average cost per click on the Meta 21-ad account.</div></div>
+      <div class="metric-card"><div class="m-icon"><i class="fa-solid fa-sack-dollar"></i></div><div class="m-val">₦4.24M</div><div class="m-lbl">Total Ad Spend</div><div class="m-desc">Combined spend across every account and platform.</div></div>
+      <div class="metric-card"><div class="m-icon"><i class="fa-solid fa-users"></i></div><div class="m-val">227K</div><div class="m-lbl">Total Reach</div><div class="m-desc">Unique Meta accounts reached, plus 334K+ TikTok impressions.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Experience</div>
+      <h2>Working with global markets</h2>
+      <p>Experience across paid media, store design, and campaign optimization, built for English-speaking audiences around the world.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>Meta Ads Campaign Management</h3><div class="t-meta">Paid Media</div><p>Planning, launching, and optimizing Meta Ads end-to-end — audience research, creative testing, budget scaling.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>TikTok Ads</h3><div class="t-meta">Paid Media</div><p>Building native-feeling TikTok creative and running Spark Ads campaigns for audiences that scroll past anything that looks like a traditional ad.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>Shopify Store Design</h3><div class="t-meta">E-commerce</div><p>Designing and building Shopify stores for speed, clarity, and checkout conversion.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>Landing Pages &amp; Sales Funnels</h3><div class="t-meta">Conversion Design</div><p>Designing pages and multi-step funnels engineered around one clear conversion goal at a time.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>Email Marketing</h3><div class="t-meta">Retention</div><p>Building nurture sequences and re-engagement flows that turn one-time buyers into repeat customers.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>Copywriting &amp; Optimization</h3><div class="t-meta">Strategy</div><p>Writing performance-driven copy and continuously testing campaigns targeting English-speaking markets globally.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Achievements</div>
+      <h2>A quick snapshot</h2>
+      <p>Cumulative totals across freelance and client campaigns.</p>
+    </div>
+    <div class="achievements-grid reveal">
+      <div class="ach-card"><div class="val">50+</div><div class="lbl">Campaigns Managed</div></div>
+      <div class="ach-card"><div class="val">$1.6M+</div><div class="lbl">Ad Spend Optimized</div></div>
+      <div class="ach-card"><div class="val">60+</div><div class="lbl">Landing Pages Built</div></div>
+      <div class="ach-card"><div class="val">98%</div><div class="lbl">Client Satisfaction</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOY -->
+<section id="joy" class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Something That Sparks Joy</div>
+      <h2>Why I love this work</h2>
+    </div>
+    <div class="joy-grid">
+      <div class="joy-image reveal"><img src="https://github.com/Tobias-Funso/Portfolio/blob/main/mine.png?raw=true" alt="A moment that sparks joy for Tobias"></div>
+      <div class="joy-copy reveal reveal-delay-1">
+        <p>What keeps me hooked on marketing isn't just the campaigns — it's the constant learning. Every algorithm shift, every new ad format, every AI tool that lands is another puzzle to solve, and I genuinely enjoy solving it.</p>
+        <p>I spend my free time experimenting with new AI tools, testing fresh creative formats, and studying brands that do performance marketing well. There's a quiet joy in watching a page you built turn a stranger into a customer.</p>
+        <p>Helping a small business go from a handful of sales to a fully booked calendar never gets old — proof that good strategy, clear copy, and continuous testing genuinely move the needle for real people running real businesses.</p>
+        <div class="joy-icons">
+          <div><i class="fa-solid fa-robot"></i><span>AI Tools</span></div>
+          <div><i class="fa-solid fa-lightbulb"></i><span>Creativity</span></div>
+          <div><i class="fa-solid fa-seedling"></i><span>Growth</span></div>
+          <div><i class="fa-solid fa-book-open"></i><span>Learning</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Working Together</div>
+      <h2>What clients can expect</h2>
+    </div>
+    <div class="testimonial-grid reveal">
+      <div class="testimonial-card"><i class="fa-solid fa-quote-left quote"></i><p>Funnels get rebuilt around one clear goal, with cost-per-lead improvements tracked and reported from week one.</p><div class="t-author"><div class="t-avatar">S</div><div><p class="t-name">For SaaS Founders</p><span>Clear reporting on lead quality &amp; cost</span></div></div></div>
+      <div class="testimonial-card"><i class="fa-solid fa-quote-left quote"></i><p>Landing pages are rebuilt to earn their keep — often paying for the project within the first month of traffic.</p><div class="t-author"><div class="t-avatar">E</div><div><p class="t-name">For E-commerce Brands</p><span>Pages built to convert, not just to load</span></div></div></div>
+      <div class="testimonial-card"><i class="fa-solid fa-quote-left quote"></i><p>Every campaign comes with a straight answer on what's working, what isn't, and what we're testing next.</p><div class="t-author"><div class="t-avatar">C</div><div><p class="t-name">For Coaches &amp; Consultants</p><span>Transparent, no-jargon communication</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">FAQ</div><h2>Good to know</h2></div>
+    <div class="faq-list reveal">
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false">What platforms do you specialize in?<i class="fa-solid fa-plus"></i></button></h3><div class="faq-a"><p>Primarily Meta Ads (Facebook &amp; Instagram) and TikTok Ads, with experience across Google Ads, email marketing, and Shopify.</p></div></div>
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false">Do you design and build stores too?<i class="fa-solid fa-plus"></i></button></h3><div class="faq-a"><p>Yes — full Shopify store builds, from layout and product pages to checkout optimization, plus WordPress when that's the better fit.</p></div></div>
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false">What industries have you worked with?<i class="fa-solid fa-plus"></i></button></h3><div class="faq-a"><p>Coaching, e-commerce, SaaS, and service-based businesses targeting English-speaking markets.</p></div></div>
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false">How do you measure success?<i class="fa-solid fa-plus"></i></button></h3><div class="faq-a"><p>Through clear metrics — ROAS, CPA, CTR, and CVR — tied directly to business goals, not vanity numbers.</p></div></div>
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false">Are you open to full-time roles?<i class="fa-solid fa-plus"></i></button></h3><div class="faq-a"><p>Yes — currently open to full-time performance marketing and e-commerce roles.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-receipt reveal">
+      <div class="contact-inner">
+        <div class="mono-label">Invoice — To Hire Tobias</div>
+        <h2>Let's Connect</h2>
+        <p>Have a role, a project, or just want to talk performance marketing? I'd love to hear from you.</p>
+        <div class="contact-ctas">
+          <a href="https://www.linkedin.com/in/tobiasfunso/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+          <a href="mailto:tobiasfunso@gmail.com" class="btn btn-gold">Email Me <i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="#home" class="logo">Tobias<span>.</span></a>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/tobiasfunso/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/tobiasgrowth/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@tobiasgrowth" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://x.com/OluwatobiO12686" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.behance.net/oluwatoolaoluw" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+        <a href="mailto:tobiasfunso@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Tobias. All rights reserved.</span>
+      <span>Designed &amp; built for Tobias.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const header = document.getElementById('siteHeader');
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+  if (window.scrollY > 500) backToTop.classList.add('show'); else backToTop.classList.remove('show');
+}, { passive:true });
+backToTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+const burgerBtn = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const menuClose = document.getElementById('menuClose');
+function openMenu(){ mobileMenu.classList.add('open'); menuOverlay.classList.add('open'); burgerBtn.setAttribute('aria-expanded','true'); }
+function closeMenu(){ mobileMenu.classList.remove('open'); menuOverlay.classList.remove('open'); burgerBtn.setAttribute('aria-expanded','false'); }
+burgerBtn.addEventListener('click', openMenu);
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e){
+    const targetId = this.getAttribute('href');
+    if (targetId.length > 1) {
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({ top, behavior:'smooth' });
+      }
+    }
+  });
+});
+
+const sections = document.querySelectorAll('section[id]');
+const navLinksAll = document.querySelectorAll('.nav-link');
+function setActiveLink(){
+  let currentId = '';
+  const scrollPos = window.scrollY + 160;
+  sections.forEach(sec => { if (scrollPos >= sec.offsetTop) currentId = sec.getAttribute('id'); });
+  navLinksAll.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + currentId));
+}
+window.addEventListener('scroll', setActiveLink, { passive:true });
+setActiveLink();
+
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in-view'); revealObserver.unobserve(entry.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+document.querySelectorAll('.faq-item').forEach(item => {
+  const btn = item.querySelector('.faq-q');
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
+    if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  });
+});
+</script>
+</body>
+</html>
