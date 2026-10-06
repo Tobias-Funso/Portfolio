@@ -675,6 +675,16 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
 .proof-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:24px;}
 @media(max-width:700px){.proof-video-grid{grid-template-columns:1fr;}}
 
+
+/* CRM dashboard proof */
+.crm-card{margin-top:24px;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:1.15fr .85fr;gap:0;}
+.crm-image{background:#111114;display:flex;align-items:center;justify-content:center;padding:28px;}
+.crm-image img{width:100%;height:auto;border-radius:12px;box-shadow:0 14px 36px rgba(0,0,0,.35);}
+.crm-info{padding:36px 34px;display:flex;flex-direction:column;justify-content:center;}
+.crm-info h3{font-size:24px;margin-bottom:12px;}
+.crm-info p{color:var(--ink-soft);font-size:14.5px;margin-bottom:20px;}
+.crm-info .cs-results{margin-top:0;}
+@media(max-width:860px){.crm-card{grid-template-columns:1fr;}.crm-image{padding:18px;}.crm-info{padding:28px 24px;}}
 </style>
 <style id="mobile-touch-fix">
 @media (max-width: 1180px){
@@ -947,7 +957,7 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
     <div class="section-head reveal">
       <div class="eyebrow">E-commerce Results</div>
       <h2>Store Sales Results</h2>
-      <p>Real screen-recorded sales results from e-commerce stores I have worked on.</p>
+      <p>Real screen-recorded sales results from stores I have worked on, backed by CRM data on confirmed and delivered orders.</p>
     </div>
     <div class="proof-video-grid">
       <article class="proof-video-card reveal">
@@ -977,6 +987,26 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
         </div>
       </article>
     </div>
+
+    <!-- CRM DASHBOARD -->
+    <article class="crm-card reveal">
+      <div class="crm-image">
+        <img src="images/crm-dashboard.png" alt="CRM dashboard showing 4,177 orders, 4.01x ROAS, ₦187,230,162 revenue and ₦46,690,813.52 ad spend">
+      </div>
+      <div class="crm-info">
+        <div class="proof-video-label">CRM Dashboard</div>
+        <h3>From ad spend to confirmed, delivered orders</h3>
+        <p>Ad platforms report purchases — the CRM shows what actually happened to them. Every order is tracked from placement to confirmation to delivery, so ROAS is measured on real revenue.</p>
+        <div class="cs-results">
+          <div class="result-badge"><div class="val">4.01x</div><div class="lbl">ROAS</div></div>
+          <div class="result-badge"><div class="val">₦187.2M</div><div class="lbl">Revenue</div></div>
+          <div class="result-badge"><div class="val">4,177</div><div class="lbl">Orders</div></div>
+          <div class="result-badge"><div class="val">72.4%</div><div class="lbl">Confirm Rate</div></div>
+          <div class="result-badge"><div class="val">67.1%</div><div class="lbl">Delivery Rate</div></div>
+          <div class="result-badge"><div class="val">₦11,178</div><div class="lbl">CPA</div></div>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -988,7 +1018,7 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
     <div class="section-head reveal">
       <div class="eyebrow">Case Studies</div>
       <h2>Campaigns that moved the numbers</h2>
-      <p>A look inside two real ads from a live 21-ad Meta Ads account — the strategy behind them and the results they delivered.</p>
+      <p>A look inside real ads from live Meta Ads accounts — the strategy behind them and the results they delivered.</p>
     </div>
 
     <!-- CASE STUDY 1 -->
@@ -1049,6 +1079,68 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
         <div class="cs-takeaway">
           <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
           <div><b>Key Takeaway</b><span>One ad drove over a third of all purchases across a 21-ad account. Testing at scale only pays off if you're willing to identify the outlier fast and shift budget toward it.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDY 3 -->
+    <div class="case-study reveal">
+      <div class="cs-image">
+        <img src="images/case-study3.png" alt="Meta Ads Manager showing the ABO ad with 725 website purchases at ₦10,720.37 per purchase for September 2026" class="cs-media">
+      </div>
+      <div class="cs-info">
+        <span class="cs-tag">Meta Ads · E-commerce</span>
+        <h3>One ad, 725 purchases in a single month</h3>
+        <div class="cs-detail-grid">
+          <div class="cs-detail"><b>Objective</b><span>Scale purchases profitably during September 2026 without letting cost per purchase climb</span></div>
+          <div class="cs-detail"><b>Challenge</b><span>Four ads were live at once, each competing for budget — only some could earn extra spend</span></div>
+          <div class="cs-detail"><b>Strategy</b><span>Gave the proven ad (ABO) its own ₦260,000 daily budget so the winner could scale without being starved by weaker ads</span></div>
+          <div class="cs-detail"><b>Audience</b><span>Meta automatic placements across Facebook &amp; Instagram, optimized for website purchases</span></div>
+          <div class="cs-detail"><b>Creative Approach</b><span>Kept frequency at 1.21 while reaching over 900K people, so the ad stayed fresh at scale</span></div>
+          <div class="cs-detail"><b>What Was Tested</b><span>ABO against Post ID, ABO 5 and ABO 4 over Sep 1–30, 2026</span></div>
+          <div class="cs-detail span-2"><b>Results</b><span>₦7.34M in spend produced 725 website purchases at ₦10,720.37 each — about 42% of all purchases in the account that month</span></div>
+          </div>
+        <div class="cs-results">
+          <div class="result-badge"><div class="val">725</div><div class="lbl">Purchases</div></div>
+          <div class="result-badge"><div class="val">₦10,720</div><div class="lbl">Cost/Purchase</div></div>
+          <div class="result-badge"><div class="val">912K</div><div class="lbl">Reach</div></div>
+          <div class="result-badge"><div class="val">1.21</div><div class="lbl">Frequency</div></div>
+          <div class="result-badge"><div class="val">₦7.34M</div><div class="lbl">Spend</div></div>
+          </div>
+        <div class="cs-takeaway">
+          <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+          <div><b>Key Takeaway</b><span>The top ad took roughly 42% of spend and delivered roughly 42% of purchases at a CPA close to the account average — proof it scaled efficiently rather than just spending more.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDY 4 -->
+    <div class="case-study reveal">
+      <div class="cs-image">
+        <img src="images/case-study4.png" alt="Meta Ads Manager showing the Mr M 4 ad with 1,056 website purchases at ₦11,519.23 per purchase from August to October 2026" class="cs-media">
+      </div>
+      <div class="cs-info">
+        <span class="cs-tag">Meta Ads · E-commerce</span>
+        <h3>Scaling one ad past 1,000 purchases</h3>
+        <div class="cs-detail-grid">
+          <div class="cs-detail"><b>Objective</b><span>Find the ad worth scaling hardest across a 9-ad account over Aug 1 – Oct 4, 2026</span></div>
+          <div class="cs-detail"><b>Challenge</b><span>Nine ads were live at once, and not every one converted — one had spent ₦39K with no purchase at all</span></div>
+          <div class="cs-detail"><b>Strategy</b><span>Put the strongest ad (Mr M 4) on a ₦500,000 daily budget while keeping Mr M 3 and TT running as support</span></div>
+          <div class="cs-detail"><b>Audience</b><span>Meta automatic placements across Facebook &amp; Instagram, optimized for website purchases</span></div>
+          <div class="cs-detail"><b>Creative Approach</b><span>Held a 1.16 frequency while reaching over 6 million people — wide reach without audience fatigue</span></div>
+          <div class="cs-detail"><b>What Was Tested</b><span>Mr M 4 against Mr M 3, TT, Mr M 5 and the rest of the account over the same date range</span></div>
+          <div class="cs-detail span-2"><b>Results</b><span>₦12.16M in spend produced 1,056 website purchases at ₦11,519.23 each — over half of the account's 2,008 purchases</span></div>
+          </div>
+        <div class="cs-results">
+          <div class="result-badge"><div class="val">1,056</div><div class="lbl">Purchases</div></div>
+          <div class="result-badge"><div class="val">₦11,519</div><div class="lbl">Cost/Purchase</div></div>
+          <div class="result-badge"><div class="val">6.04M</div><div class="lbl">Reach</div></div>
+          <div class="result-badge"><div class="val">1.16</div><div class="lbl">Frequency</div></div>
+          <div class="result-badge"><div class="val">₦12.16M</div><div class="lbl">Spend</div></div>
+          </div>
+        <div class="cs-takeaway">
+          <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+          <div><b>Key Takeaway</b><span>One ad drove about 53% of all purchases in a 9-ad account. Spotting the outlier early and backing it with budget is what turned testing into scale.</span></div>
         </div>
       </div>
     </div>
