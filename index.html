@@ -685,6 +685,12 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
 .crm-info p{color:var(--ink-soft);font-size:14.5px;margin-bottom:20px;}
 .crm-info .cs-results{margin-top:0;}
 @media(max-width:860px){.crm-card{grid-template-columns:1fr;}.crm-image{padding:18px;}.crm-info{padding:28px 24px;}}
+
+/* Wide-screenshot case studies: show the full image, stacked above the details */
+.case-study.cs-wide{grid-template-columns:1fr;gap:36px;}
+.case-study.cs-wide .cs-image{order:0 !important;position:static;aspect-ratio:auto;background:#fff;border:1px solid var(--line);}
+.case-study.cs-wide .cs-image img{width:100%;height:auto;object-fit:contain;display:block;}
+.case-study.cs-wide:hover .cs-image img{transform:none;}
 </style>
 <style id="mobile-touch-fix">
 @media (max-width: 1180px){
@@ -991,7 +997,7 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
     <!-- CRM DASHBOARD -->
     <article class="crm-card reveal">
       <div class="crm-image">
-        <img src="https://github.com/Tobias-Funso/Portfolio/blob/main/crm-dashboard.png?raw=true" alt="CRM dashboard showing 4,177 orders, 4.01x ROAS, ₦187,230,162 revenue and ₦46,690,813.52 ad spend">
+        <img src="images/crm-dashboard.png" alt="CRM dashboard showing 4,177 orders, 4.01x ROAS, ₦187,230,162 revenue and ₦46,690,813.52 ad spend">
       </div>
       <div class="crm-info">
         <div class="proof-video-label">CRM Dashboard</div>
@@ -1084,7 +1090,7 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
     </div>
 
     <!-- CASE STUDY 3 -->
-    <div class="case-study reveal">
+    <div class="case-study cs-wide reveal">
       <div class="cs-image">
         <img src="https://github.com/Tobias-Funso/Portfolio/blob/main/case-study3.png?raw=true" alt="Meta Ads Manager showing the ABO ad with 725 website purchases at ₦10,720.37 per purchase for September 2026" class="cs-media">
       </div>
@@ -1115,7 +1121,7 @@ footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
     </div>
 
     <!-- CASE STUDY 4 -->
-    <div class="case-study reveal">
+    <div class="case-study cs-wide reveal">
       <div class="cs-image">
         <img src="https://github.com/Tobias-Funso/Portfolio/blob/main/case-study4.png?raw=true" alt="Meta Ads Manager showing the Mr M 4 ad with 1,056 website purchases at ₦11,519.23 per purchase from August to October 2026" class="cs-media">
       </div>
